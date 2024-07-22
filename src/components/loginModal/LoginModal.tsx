@@ -15,6 +15,7 @@ const LoginModal: React.FC<LoginModalPorps> = ({
       <LoginPage
         title="WELCOME BACK"
         subTitle="Log into your account"
+        showCrossIcon={true}
         setIsLoginModalOpen={setIsLoginModalOpen}
         setIsSignUpModalOpen={setIsSignUpModalOpen}
       />

@@ -4,18 +4,23 @@ import CrossIcon from "../../assets/crossIcon.svg";
 type ICard = {
   title: string;
   subTitle: string;
+  showCrossIcon: boolean;
   setIsLoginModalOpen?: (isOpen: boolean) => void;
   setIsSignUpModalOpen?: (isOpen: boolean) => void;
+  setShowCommunityPost?: (showCommunityPost: boolean) => void;
 };
 
 const Card: React.FC<ICard> = ({
   title,
   subTitle,
+  showCrossIcon,
   setIsLoginModalOpen,
   setIsSignUpModalOpen,
+  setShowCommunityPost,
 }) => {
   const handleModalClose = () => {
     setIsLoginModalOpen && setIsLoginModalOpen(false);
+    setShowCommunityPost && setShowCommunityPost(true);
   };
 
   const handleSignUpClick = () => {
@@ -32,12 +37,14 @@ const Card: React.FC<ICard> = ({
               {subTitle}
             </p>
           </div>
-          <img
-            src={CrossIcon}
-            alt="cross icon"
-            className="absolute top-4 right-0 cursor-pointer"
-            onClick={handleModalClose}
-          />
+          {showCrossIcon && (
+            <img
+              src={CrossIcon}
+              alt="cross icon"
+              className="absolute top-4 right-0 cursor-pointer"
+              onClick={handleModalClose}
+            />
+          )}
         </div>
         {/* <div className="text-textGray text-14px text-center">{title}</div>
         <p className=" text-base text-center text-18px text-white">
