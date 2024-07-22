@@ -16,6 +16,7 @@ export default {
       },
       borderWidth: {
         "2px": "2px",
+        1.5: "1.5px",
       },
       colors: {
         primary: "#4A96FF",
@@ -28,6 +29,7 @@ export default {
         "custom-gray": "#C5C7CA",
         "custom-black": "#35373B",
         "custom-input-black": "#191920",
+        "card-border": "#969696",
       },
       spacing: {
         "78px": "78px",

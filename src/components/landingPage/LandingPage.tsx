@@ -1,4 +1,4 @@
-import Logo from "../../assets/logo/logo.svg";
+import Logo from "../../assets/logo.svg";
 import LoginPage from "../login/LoginPage";
 
 interface LandingPageProps {

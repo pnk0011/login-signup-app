@@ -1,5 +1,6 @@
 import React from "react";
 import CrossIcon from "../../assets/crossIcon.svg";
+import EyeIcon from "../../assets/EyeIcon.svg";
 
 type ICard = {
   title: string;
@@ -28,7 +29,7 @@ const Card: React.FC<ICard> = ({
     setIsSignUpModalOpen && setIsSignUpModalOpen(true);
   };
   return (
-    <div className="max-w-sm rounded-custom overflow-hidden shadow-lg bg-cardBg w-card-width h-card-height">
+    <div className="max-w-sm border border-card-border border-2px rounded-custom overflow-hidden shadow-lg bg-cardBg w-card-width h-card-height">
       <div className="px-6  flex justify-center flex-col mt-2 relative">
         <div className="flex justify-center relative">
           <div className="px-6 py-4 flex justify-center flex-col mt-4">
@@ -52,7 +53,7 @@ const Card: React.FC<ICard> = ({
         </p> */}
       </div>
       <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm px-6">
-        <form className="space-y-6">
+        <form className="space-y-4">
           <div>
             <label
               htmlFor="email"
@@ -67,7 +68,7 @@ const Card: React.FC<ICard> = ({
                 type="email"
                 placeholder="Enter your email or username"
                 autoComplete="email"
-                className="block w-full border border-borderGray rounded border-1.5 text-white bg-cardBg p-4 border-1.5 px-2 py-1.5  placeholder:text-placeholder-base text-white sm:text-sm sm:leading-6"
+                className="block w-full border border-custom-black rounded border-1.5 text-white bg-cardBg p-4 border-1.5 px-2 py-1.5  placeholder:text-placeholder-base text-white sm:text-sm sm:leading-6"
               />
             </div>
           </div>
@@ -86,15 +87,23 @@ const Card: React.FC<ICard> = ({
                 </a>
               </div>
             </div>
-            <div className="mt-2">
+            <div className="relative mt-2">
               <input
                 id="password"
                 name="password"
                 type="password"
                 placeholder="Enter your password"
                 autoComplete="current-password"
-                className="block w-full border border-borderGray border-1.5  text-white rounded bg-cardBg p-4 py-1.5  shadow-sm  placeholder:text-placeholder-base  focus:text-white  sm:text-sm sm:leading-6"
+                className="block w-full border border-custom-black border-1.5 text-white rounded bg-cardBg p-4 py-1.5 shadow-sm placeholder:text-placeholder-base  focus:text-white  sm:text-sm sm:leading-6"
               />
+              <img
+                src={EyeIcon}
+                alt="eye icon"
+                className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400"
+              />
+              {/* <div className="absolute top-1/2 right-3 transform -translate-y-1/2 text-gray-400">
+                💬
+              </div> */}
             </div>
           </div>
 

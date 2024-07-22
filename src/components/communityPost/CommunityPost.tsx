@@ -1,49 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 
-interface CommunityPostProps {
-  userName: string;
-  userImage: string;
-  postContent: string;
-  commentsCount: number;
-  postTime: string;
-}
+import LoginModal from "../loginModal/LoginModal";
+import SignUpModal from "../signUpModal/SignUpModal";
+import CreatePost from "../createPost/CreatePost";
+import ShowPost from "../showPost/ShowPost";
 
-const CommunityPost: React.FC<CommunityPostProps> = ({
-  userName,
-  userImage,
-  postContent,
-  commentsCount,
-  postTime,
-}) => {
+const CommunityPost: React.FC = () => {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+  const [isSignUpModalOpen, setIsSignUpModalOpen] = useState(false);
   return (
-    <div className="p-4 max-w-md mx-auto rounded-xl shadow-md space-y-4 text-white">
-      <div className="flex items-center space-x-4">
-        <div className="flex-shrink-0">
-          <img
-            className="h-12 w-12 rounded-full"
-            src={userImage}
-            alt={userName}
-          />
-        </div>
-        <div>
-          <div className="text-xl font-medium">{userName}</div>
-          <p className="text-gray-400">{postTime} ago</p>
-        </div>
-      </div>
-      <p className="text-gray-300">{postContent}</p>
-      <div className="flex items-center justify-between text-gray-400">
-        <div>
-          <svg
-            className="w-5 h-5 inline-block mr-1"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-          >
-            <path d="M2.928 12.09a6.5 6.5 0 1010.644 5.62c-.34.06-.69.09-1.045.09H9l-1 4-2.5-4h-2a6.53 6.53 0 01-2.527-.51zm10.576-2.683a5.5 5.5 0 111.66-3.683 5.5 5.5 0 01-1.66 3.683zM5 6.5A1.5 1.5 0 106.5 5 1.5 1.5 0 005 6.5z"></path>
-          </svg>
-          <span>{commentsCount} comments</span>
+    <>
+      <div className="App min-h-screen p-6 mt-8">
+        <div className="max-w-2xl mx-auto">
+          <h1 className="text-28px text-custom-gray">Hello Jane</h1>
+          <p className="text-lightWhite mb-6">
+            How are you doing today? Would you like to share something with the
+            <span className="whitespace-nowrap"> community? 🤗</span>
+          </p>
+          <CreatePost setIsSignUpModalOpen={setIsSignUpModalOpen} />
+          <ShowPost />
+          <ShowPost />
         </div>
       </div>
-    </div>
+      {isLoginModalOpen && (
+        <LoginModal
+          setIsLoginModalOpen={setIsLoginModalOpen}
+          setIsSignUpModalOpen={setIsSignUpModalOpen}
+        />
+      )}
+      {isSignUpModalOpen && (
+        <SignUpModal
+          title="SIGN UP"
+          subTitle="Create an account to continue"
+          setIsLoginModalOpen={setIsLoginModalOpen}
+          setIsSignUpModalOpen={setIsSignUpModalOpen}
+        />
+      )}
+    </>
   );
 };
 

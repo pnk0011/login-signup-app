@@ -1,14 +1,14 @@
 import { useState } from "react";
 
 import LandingPage from "./components/landingPage/LandingPage";
-import CreatePost from "./components/createPost/CreatePost";
+import CommunityPost from "./components/communityPost/CommunityPost";
 
 function App() {
   const [showCommunityPost, setShowCommunityPost] = useState(false);
   return (
     <>
       {showCommunityPost ? (
-        <CreatePost />
+        <CommunityPost />
       ) : (
         <LandingPage setShowCommunityPost={setShowCommunityPost} />
       )}
